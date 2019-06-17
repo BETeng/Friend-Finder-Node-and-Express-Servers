@@ -41,7 +41,7 @@
     <h3><strong>Question 1</strong></h3>
 
     <h4>Your mind is always buzzing with unexplored ideas and plans.</h4>
-    <form id='f1' value="">
+    <form id='f1' class="radio-form">
       <table>
         <tr>
           <td>
@@ -76,7 +76,7 @@
     <h3><strong>Question 2 </strong></h3>
 
     <h4>QUESTION 2</h4>
-    <form id='f2'>
+    <form id='f2' class="radio-form">
       <table>
         <tr>
           <td>
@@ -108,10 +108,11 @@
         </tr>
       </table>
     </form>
+
     <h3><strong>Question 3</strong></h3>
 
     <h4>QUESTION 3</h4>
-    <form id='f3'>
+    <form id='f3' class="radio-form">
       <table>
         <tr>
           <td>
@@ -146,7 +147,7 @@
     <h3><strong>Question 4 </strong></h3>
 
     <h4>QUESTION 4 </h4>
-    <form id='f4'>
+    <form id='f4' class="radio-form">
       <table>
         <tr>
           <td>
@@ -181,7 +182,7 @@
     <h3><strong>Question 5 </strong></h3>
 
     <h4>QUESTION 5 </h4>
-    <form id='f5'>
+    <form id='f5' class="radio-form">
       <table>
         <tr>
           <td>
@@ -216,7 +217,7 @@
     <h3><strong>Question 6 </strong></h3>
 
     <h4>QUESTION 6 </h4>
-    <form id='f6'>
+    <form id='f6' class="radio-form">
       <table>
         <tr>
           <td>
@@ -251,7 +252,7 @@
     <h3><strong>Question 7 </strong></h3>
 
     <h4>QUESTION 7</h4>
-    <form id='f7'>
+    <form id='f7' class="radio-form">
       <table>
         <tr>
           <td>
@@ -286,7 +287,7 @@
     <h3><strong>Question 8 </strong></h3>
 
     <h4>QUESTION 8</h4>
-    <form id='f8'>
+    <form id='f8' class="radio-form">
       <table>
         <tr>
           <td>
@@ -321,7 +322,7 @@
     <h3><strong>Question 9 </strong></h3>
 
     <h4>QUESTION 9</h4>
-    <form id='f9'>
+    <form id='f9' class="radio-form">
       <table>
         <tr>
           <td>
@@ -356,7 +357,7 @@
     <h3><strong>Question 10 </strong></h3>
 
     <h4>QUESTION 10</h4>
-    <form id='f10'>
+    <form id='f10' class="radio-form">
       <table>
         <tr>
           <td>
@@ -436,32 +437,63 @@
       event.preventDefault();
       // var radio_selected = $('input[name=options]:checked', '#f1').val()
       // console.log(radio_selected);
-      var radio_selected = $('input[name=options]:checked', '#f' + [i]).val()
       for (var i = 1; i < 11; i++) {
         var radio_selected = $('input[name=options]:checked', '#f' + [i]).val()
         console.log(radio_selected);
-        $("#f"+[i]).val(radio_selected)
+        $("#f" + [i]).val(radio_selected)
       }
 
-      var userData = {
-        name: $("#name").val(),
-        photo: $("#photo").val(),
-        scores: [
-        $("#f1").val(),
-        $("#f2").val(),
-        $("#f3").val(),
-        $("#f4").val(),
-        $("#f5").val(),
-        $("#f6").val(),
-        $("#f7").val(),
-        $("#f8").val(),
-        $("#f9").val(),
-        $("#f10").val()
-        ]
-       };
-      console.log(userData)
+      // Form validation
+      function validateForm() {
+        var isValid = true;
+        $(".form-control").each(function () {
+          if ($(this).val() === "") {
+            isValid = false;
+          }
+        });
 
-    })
+        $(".radio-form").each(function () {
+          if ($(this).val() === "") {
+            isValid = false;
+          }
+        });
+        return isValid;
+      }
+
+
+
+      if (validateForm()) {
+        var userData = {
+          name: $("#name").val(),
+          photo: $("#photo").val(),
+          scores: [
+            parseInt($("#f1").val()),
+            parseInt($("#f2").val()),
+            parseInt($("#f3").val()),
+            parseInt($("#f4").val()),
+            parseInt($("#f5").val()),
+            parseInt($("#f6").val()),
+            parseInt($("#f7").val()),
+            parseInt($("#f8").val()),
+            parseInt($("#f9").val()),
+            parseInt($("#f10").val())
+          ]
+        };
+        console.log('userData ',userData)
+        $.post("/api/friends", userData, function (data) {
+
+          // Grab the result from the AJAX post so that the best match's name and photo are displayed.
+          $("#match-name").text(data.name);
+          $("#match-img").attr("src", data.photo);
+
+          // Show the modal with the best match
+          $("#results-modal").modal("toggle");
+
+        });
+      } else {
+        alert("Please fill out all fields before submitting!");
+      }
+    });
 
 
 
