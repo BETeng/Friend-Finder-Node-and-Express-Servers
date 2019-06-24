@@ -10,19 +10,34 @@ module.exports = function (app) {
     var newFriend = req.body;
     newFriend.scores = newFriend.scores.map(el => parseInt(el));
     //console.log(newFriend);
-    friendData.push(newFriend);
+    // friendData.push(newFriend); 
     console.log(newFriend.scores);
-    res.json(friendData);
-    for (var i=0; i<friendData.length; i++){friendData[i].scores[j]
-      for (var j=0; j<10; j++){
-        var difference = Math.abs(newFriend.scores[j]-friendData[i].scores[j]);
-        console.log('newFriend.score',newFriend.scores[j]);
-        console.log('friend:'+[i]+' question:'+[j+1]+' score:'+ friendData[i].scores[j])
-        console.log('difference', difference);
+
+    var comparisonArray = [];
+
+    for (var i = 0; i < friendData.length; i++) {
+      var comparedFriend = friendData[i];
+      var totalDifference = 0;
+
+      for (var j = 0; j < 10; j++) {
+        var difference = Math.abs(comparedFriend.scores[j] - newFriend.scores[j]);
+        console.log('newF score:', newFriend.scores[j], 'compF score:', comparedFriend.scores[j]);
+        totalDifference += difference;
+        console.log('difference:', difference, 'totalDifference', totalDifference);
+      }
+      comparisonArray[i] = totalDifference;
+      console.log('comparedFriend', comparedFriend)
+      console.log(comparisonArray)
+    }
+    var bestMatchId = comparisonArray[0];
+    var bestMatchIVal = 0;
+
+    for(var i =0; i<comparisonArray.length; i++){
+      if(comparisonArray[i]<bestMatchId){
+        bestMatchId = comparisonArray[i];
+        bestMatchIVal = i;
       }
     }
-  });// compile all the differnces and then add them together for totalDifference 
+    res.json(friendData[bestMatchIVal]); 
+  });
 }
-// compile differences for each individual into a totalDiffernce var
-// run a loop to check which totalDifference is the smallest
-// determine which indiviudal has the smallest totalDifference and spit the name and image into div class="modal-body"

@@ -14,10 +14,11 @@ var friendData = [
       4,
       1
     ]
-  },
+  }
+  ,
   {
-    "name": "Brain",
-    "photo": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+    "name": "Mr. One",
+    "photo": "http://vignette2.wikia.nocookie.net/onepiece/images/4/49/Supa_Supa_no_Mi_F%C3%A4higkeit.jpg/revision/latest?cb=20100626204945&path-prefix=de",
     "scores": [
       1,
       1,
@@ -32,8 +33,8 @@ var friendData = [
     ]
   },
   {
-    "name": "Horhay",
-    "photo": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+    "name": "Mr. Five",
+    "photo": "https://vignette.wikia.nocookie.net/onepiece/images/1/14/Gem_Anime_Infobox.png/revision/latest?cb=20130413112110",
     "scores": [
       5,
       5,
