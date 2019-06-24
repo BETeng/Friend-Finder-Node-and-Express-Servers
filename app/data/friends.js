@@ -1,24 +1,8 @@
 var friendData = [
-  {
-    "name": "Ahmed",
-    "photo": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
-    "scores": [
-      5,
-      1,
-      4,
-      4,
-      5,
-      1,
-      2,
-      5,
-      4,
-      1
-    ]
-  }
-  ,
+  
   {
     "name": "Mr. One",
-    "photo": "http://vignette2.wikia.nocookie.net/onepiece/images/4/49/Supa_Supa_no_Mi_F%C3%A4higkeit.jpg/revision/latest?cb=20100626204945&path-prefix=de",
+    "photo": "https://cdn.myanimelist.net/images/characters/15/50448.jpg",
     "scores": [
       1,
       1,
@@ -30,6 +14,54 @@ var friendData = [
       1,
       1,
       1
+    ]
+  },
+  {
+    "name": "Mr. Two",
+    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTphJuGKbRbaLQ7-4Dd0IIqY5VAz0bO4TYgheicRwYrQgQYP37h2g",
+    "scores": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ]
+  },
+  {
+    "name": "Mr. Three",
+    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRY-S4SV5fLpXmq0R3ai8KM0MB8tFNum_PeAyvaJ4-2wyHu9hbD-rJNGyFD",
+    "scores": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ]
+  },
+  {
+    "name": "Mr. Four",
+    "photo": "https://vignette.wikia.nocookie.net/onepiece/images/9/96/Babe.png/revision/latest?cb=20161001132641&path-prefix=it",
+    "scores": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
     ]
   },
   {

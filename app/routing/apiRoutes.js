@@ -38,6 +38,7 @@ module.exports = function (app) {
         bestMatchIVal = i;
       }
     }
+    friendData.push(newFriend);
     res.json(friendData[bestMatchIVal]); 
   });
 }
