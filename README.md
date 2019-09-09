@@ -7,3 +7,9 @@ Upon opening, a survey will pop up and when all questions are enetered it will m
 
 ### Link 
 https://friendfinder-expressnode.herokuapp.com/
+
+### Technologies Used 
+* Javascript
+* Modules
+* Node
+* Express
